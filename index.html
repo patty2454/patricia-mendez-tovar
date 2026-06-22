@@ -468,6 +468,37 @@
     </div>
   </footer>
 
+  <!-- Chatbot -->
+  <div id="chatbot" class="chatbot" aria-live="polite">
+    <div class="chatbot-panel" id="chatbot-panel" hidden>
+      <header class="chatbot-header">
+        <div class="chatbot-header-info">
+          <span class="chatbot-avatar" aria-hidden="true">PM</span>
+          <div>
+            <p class="chatbot-title">Asistente virtual</p>
+            <p class="chatbot-subtitle">Patricia Méndez Tovar</p>
+          </div>
+        </div>
+        <button type="button" class="chatbot-close" aria-label="Cerrar chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+      <div class="chatbot-messages" role="log" aria-label="Mensajes del chat"></div>
+      <div class="chatbot-quick" aria-label="Preguntas frecuentes"></div>
+      <form class="chatbot-form">
+        <label class="visually-hidden" for="chatbot-input">Escribe tu mensaje</label>
+        <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Escribe tu pregunta…" autocomplete="off" maxlength="300">
+        <button type="submit" class="chatbot-send" aria-label="Enviar mensaje">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        </button>
+      </form>
+    </div>
+    <button type="button" class="chatbot-toggle" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Abrir asistente virtual">
+      <svg class="chatbot-toggle-icon chatbot-toggle-icon--chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg class="chatbot-toggle-icon chatbot-toggle-icon--close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <script>
     const header = document.getElementById('header');
     const toggle = document.querySelector('.nav-toggle');
@@ -493,5 +524,6 @@
       });
     });
   </script>
+  <script src="chatbot.js"></script>
 </body>
 </html>
