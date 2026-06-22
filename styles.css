@@ -787,6 +787,11 @@ a:focus-visible,
 
 .ciber-card--featured a:not(.btn) { color: #fff; }
 
+.ciber-card-btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 .ciber-card-badge {
   align-self: flex-start;
   padding: 0.3rem 0.75rem;
