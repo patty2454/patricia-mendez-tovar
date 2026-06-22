@@ -43,7 +43,7 @@ body {
 body.menu-open { overflow: hidden; }
 
 #inicio, #sobre-mi, #experiencia, #educacion,
-#certificaciones, #habilidades, #contacto, #main-content {
+#certificaciones, #ciber-educa, #habilidades, #contacto, #main-content {
   scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
@@ -696,6 +696,202 @@ a:focus-visible,
   font-size: 0.9rem;
   color: var(--ink-muted);
   line-height: 1.5;
+}
+
+/* Ciber Educa Ahora */
+.ciber-section {
+  background:
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(249, 115, 22, 0.08) 0%, transparent 55%),
+    linear-gradient(180deg, var(--surface-warm) 0%, var(--surface-soft) 100%);
+}
+
+.ciber-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.ciber-stat {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.ciber-stat-value {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--teal-900);
+}
+
+.ciber-stat-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.ciber-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.ciber-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.ciber-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.ciber-card--featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--teal-900) 0%, var(--teal-700) 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+@media (min-width: 900px) {
+  .ciber-card--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.ciber-card--featured h3,
+.ciber-card--featured p,
+.ciber-card--featured .ciber-list,
+.ciber-card--featured .ciber-price {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.ciber-card--featured .ciber-list li::marker { color: var(--orange-500); }
+
+.ciber-card--featured a:not(.btn) { color: #fff; }
+
+.ciber-card-badge {
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-600);
+  background: var(--orange-100);
+  border-radius: 999px;
+}
+
+.ciber-card--featured .ciber-card-badge {
+  color: var(--teal-900);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.ciber-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--teal-700);
+  background: var(--teal-100);
+  border-radius: var(--radius-sm);
+}
+
+.ciber-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--teal-900);
+}
+
+.ciber-card--featured h3 { color: #fff; }
+
+.ciber-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.ciber-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.ciber-list--compact {
+  padding-left: 0;
+  list-style: none;
+}
+
+.ciber-list--compact li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ciber-list--compact li:last-child { border-bottom: none; }
+
+.ciber-price {
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.ciber-price strong { color: var(--orange-500); }
+
+.ciber-card--featured .ciber-price strong { color: #ffd6a8; }
+
+.ciber-cta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.ciber-cta-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange-600);
+}
+
+.ciber-cta-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+
+.ciber-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 /* Skills */
