@@ -9,11 +9,10 @@
   <meta property="og:site_name" content="DataLexis.mx">
   <title>DataLexis.mx | Ciberseguridad y Gestión de Riesgos ISO 27001</title>
   <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.paypal.com">
-  <link rel="preconnect" href="https://www.paypalobjects.com">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -44,6 +43,7 @@
         <a href="#beneficios" class="nav-link">Beneficios</a>
         <a href="#manual" class="nav-link">Manual ISO</a>
         <a href="#precios" class="nav-link">Precios</a>
+        <a href="#pago" class="nav-link">Pago</a>
         <a href="#testimonios" class="nav-link">Casos</a>
         <a href="#certificaciones" class="nav-link">Credenciales</a>
         <a href="#asesoria" class="nav-link nav-link--cta">Solicitar Asesoría</a>
@@ -376,23 +376,21 @@
             <p class="paypal-box-alt">También aceptamos transferencia, depósito y pagos en 2 exhibiciones.</p>
           </div>
           <div class="paypal-box-btn">
-            <div id="paypal-container-4MP3PQYMYCMGE" class="paypal-container">
-              <p class="paypal-loading" id="paypal-loading">Cargando botón de PayPal…</p>
-            </div>
             <form
-              id="paypal-fallback"
-              class="paypal-fallback-form"
+              class="paypal-pay-form"
               action="https://www.paypal.com/cgi-bin/webscr"
               method="post"
               target="_blank"
-              hidden
+              rel="noopener noreferrer"
             >
               <input type="hidden" name="cmd" value="_s-xclick">
               <input type="hidden" name="hosted_button_id" value="4MP3PQYMYCMGE">
-              <button type="submit" class="btn btn--primary btn--block paypal-fallback-btn">
+              <button type="submit" class="paypal-pay-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.34 6.5H2.5L1 18.12h3.17l.35-2.24h2.9c3.07 0 5.18-1.57 5.68-4.88.22-1.52-.02-2.71-.72-3.54-.78-.92-2.17-1.42-4.08-1.42zm.58 5.2c-.26 1.67-1.54 1.67-2.78 1.67H4.3l.55-3.52h1.05c1.2 0 2.08.03 2.42 1.85zM20.5 10.2c-.46-2.2-2.48-3.52-5.14-3.52H11.1l-1.2 7.62h3.2c2.5 0 4.1-1.2 4.58-3.3.2-.95.15-1.8-.18-2.5z"/></svg>
                 Pagar con PayPal
               </button>
             </form>
+            <p class="paypal-secure-note">Pago seguro en MXN · Se abre en PayPal</p>
           </div>
         </div>
         <p class="pricing-note">
@@ -669,63 +667,5 @@
     });
   </script>
   <script src="chatbot.js?v=3"></script>
-  <script>
-    const PAYPAL_BUTTON_ID = '4MP3PQYMYCMGE';
-    const PAYPAL_CONTAINER = '#paypal-container-4MP3PQYMYCMGE';
-
-    function paypalRendered() {
-      const container = document.querySelector(PAYPAL_CONTAINER);
-      if (!container) return false;
-      return Boolean(
-        container.querySelector('iframe') ||
-        container.querySelector('[data-paypal-hosted-button]') ||
-        container.querySelector('.paypal-button')
-      );
-    }
-
-    function showPayPalFallback() {
-      const loading = document.getElementById('paypal-loading');
-      const fallback = document.getElementById('paypal-fallback');
-      if (loading) loading.hidden = true;
-      if (fallback) fallback.hidden = false;
-    }
-
-    function verifyPayPalRender() {
-      if (!paypalRendered()) showPayPalFallback();
-    }
-
-    function initPayPalButton() {
-      const loading = document.getElementById('paypal-loading');
-
-      if (typeof paypal === 'undefined' || !paypal.HostedButtons) {
-        showPayPalFallback();
-        return;
-      }
-
-      paypal.HostedButtons({
-        hostedButtonId: PAYPAL_BUTTON_ID,
-      })
-        .render(PAYPAL_CONTAINER)
-        .then(function () {
-          if (loading) loading.hidden = true;
-          setTimeout(verifyPayPalRender, 2500);
-        })
-        .catch(function () {
-          showPayPalFallback();
-        });
-    }
-
-    setTimeout(function () {
-      if (!paypalRendered()) showPayPalFallback();
-    }, 6000);
-
-    window.initPayPalButton = initPayPalButton;
-  </script>
-  <script
-    src="https://www.paypal.com/sdk/js?client-id=BAA8nO5EagHBkx9gemUtYaTy2b_AJdfmqUTHKQIZ7_BoT3tIUI4iYiq8PKcMRrKjBELAvYHeURAmd01eTk&components=hosted-buttons&disable-funding=venmo&currency=MXN"
-    data-sdk-integration-source="integrationbuilder"
-    onload="initPayPalButton()"
-    onerror="showPayPalFallback()"
-  ></script>
 </body>
 </html>
