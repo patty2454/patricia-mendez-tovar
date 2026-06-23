@@ -1,103 +1,50 @@
 (function () {
-  const RULES = [
-    {
-      keys: ['hola', 'buenos', 'buenas', 'hey', 'hi', 'saludos', 'qué tal', 'que tal'],
-      reply:
-        '¡Hola! Soy el asistente virtual de Patricia Méndez Tovar. Puedo ayudarte con información sobre su perfil profesional, certificaciones, el taller Ciber Educa Ahora o cómo contactarla. ¿Qué te gustaría saber?',
-    },
-    {
-      keys: ['quién es', 'quien es', 'sobre patricia', 'sobre mí', 'presentación', 'perfil'],
-      reply:
-        'Patricia Méndez Tovar es auxiliar administrativa, asistente jurídica y reclutadora IT. Tiene doble licenciatura en Derecho (UNADM) e Ingeniería en Gestión de TI (UVEG), con más de 3 años de experiencia en despachos jurídicos, reclutamiento tech y atención a clientes.',
-    },
-    {
-      keys: ['experiencia', 'trabajo', 'laboral', 'despacho', 'telvista', 'reclutadora'],
-      reply:
-        'Su experiencia incluye: Asistente Jurídica en A R y Asociados (2024–2025), Reclutadora IT Freelancer (2021–2024) y Agente de Atención a Clientes en Telvista (2022–2023). Puedes ver el detalle en la sección Experiencia del portafolio.',
-      action: { label: 'Ver experiencia', href: '#experiencia' },
-    },
-    {
-      keys: ['educación', 'educacion', 'estudios', 'unadm', 'uveg', 'licenciatura', 'universidad'],
-      reply:
-        'Licenciatura en Derecho (UNADM, 2019–2024) e Ingeniería en Gestión de Tecnologías de la Información (UVEG, 2018–2021), con formación en bases de datos, desarrollo, seguridad de la información y gestión de proyectos.',
-      action: { label: 'Ver educación', href: '#educacion' },
-    },
-    {
-      keys: ['certificación', 'certificacion', 'az-900', 'azure', 'iso', '27001', 'ciberseguridad'],
-      reply:
-        'Patricia cuenta con: Microsoft Azure Fundamentals (AZ-900), Auditor Interno ISO 27001 y Fundamentos de Ciberseguridad. Esto respalda su trabajo en Ciber Educa Ahora y proyectos con enfoque en seguridad digital.',
-      action: { label: 'Ver certificaciones', href: '#certificaciones' },
-    },
-    {
-      keys: ['habilidad', 'competencia', 'sabe', 'dominio', 'python', 'sql', 'scrum'],
-      reply:
-        'Sus competencias incluyen: control documental, gestión de expedientes, reclutamiento IT, Microsoft Office, Python, SQL/MySQL, Azure, Scrum/Agile, ISO 27001 y ciberseguridad. Idiomas: español nativo e inglés B2.',
-      action: { label: 'Ver habilidades', href: '#habilidades' },
-    },
-    {
-      keys: ['contacto', 'correo', 'email', 'teléfono', 'telefono', 'llamar', 'escribir', 'whatsapp'],
-      reply:
-        'Puedes contactar a Patricia por:\n• Correo: thinkahead2033@gmail.com\n• Teléfono: 646 207 7996\n• LinkedIn: patricia-méndez-tovar',
-      action: { label: 'Ir a contacto', href: '#contacto' },
-    },
-    {
-      keys: ['ciber educa', 'cibereduca', 'taller', 'familias seguras', 'ciberacoso', 'padres', 'familia'],
-      reply:
-        'Ciber Educa Ahora es su proyecto de educación en ciberseguridad familiar. Ofrece el taller «Familias Seguras en Red» (2 h): ciberacoso, privacidad, phishing y qué hacer ante incidentes, con enfoque legal. Desde $450 MXN por persona o $3,500 por grupo.',
-      action: { label: 'Ver Ciber Educa Ahora', href: '#ciber-educa' },
-    },
-    {
-      keys: ['precio', 'costo', 'cuánto', 'cuanto', 'cobr', 'tarifa', 'paquete'],
-      reply:
-        'Referencias de precio:\n• Taller familiar: desde $450 MXN/persona o $3,500/grupo\n• Programa escuelas: desde $6,000 MXN\nPara cotización exacta, escribe a thinkahead2033@gmail.com indicando número de participantes y modalidad (presencial o virtual).',
-      action: { label: 'Solicitar taller', href: 'mailto:thinkahead2033@gmail.com?subject=Cotización%20taller%20Ciber%20Educa%20Ahora' },
-    },
-    {
-      keys: ['escuela', 'colegio', 'docente', 'maestro', 'director', 'institución'],
-      reply:
-        'Ofrece paquetes para escuelas: taller para padres + guía para docentes con protocolo ante ciberacoso. Paquete básico desde $6,000 MXN (presencial o virtual). Solicita propuesta formal por correo.',
-      action: { label: 'Solicitar propuesta escolar', href: 'mailto:thinkahead2033@gmail.com?subject=Propuesta%20taller%20escuela%20Ciber%20Educa%20Ahora' },
-    },
-    {
-      keys: ['088', 'te protejo', 'denuncia', 'ayuda', 'emergencia', 'recurso'],
-      reply:
-        'Recursos recomendados en México:\n• 088 — CERT-MX (orientación 24/7)\n• Te Protejo México — teprotejomexico.org\n• 911 — emergencias\n• CONDUSEF — fraudes bancarios',
-      action: { label: 'Recursos en el sitio', href: '#ciber-educa' },
-    },
-    {
-      keys: ['linkedin', 'red profesional'],
-      reply: 'Perfil de LinkedIn: linkedin.com/in/patricia-méndez-tovar-3919bb169',
-      action: {
-        label: 'Abrir LinkedIn',
-        href: 'https://www.linkedin.com/in/patricia-m%C3%A9ndez-tovar-3919bb169/',
-        external: true,
-      },
-    },
-    {
-      keys: ['empleo', 'contratar', 'oportunidad', 'vacante', 'servicio', 'freelance', 'consultoría', 'consultoria'],
-      reply:
-        'Patricia está disponible para oportunidades en administración, apoyo jurídico, reclutamiento IT y talleres de ciberseguridad familiar. Escríbele con el tipo de proyecto y modalidad (presencial o remota).',
-      action: { label: 'Enviar correo', href: 'mailto:thinkahead2033@gmail.com?subject=Consulta%20profesional' },
-    },
-    {
-      keys: ['gracias', 'thank', 'perfecto', 'genial', 'excelente', 'ok', 'vale'],
-      reply: '¡Con gusto! Si necesitas algo más, aquí estaré. También puedes contactar a Patricia directamente por correo o teléfono.',
-    },
-    {
-      keys: ['adiós', 'adios', 'bye', 'chao', 'hasta luego'],
-      reply: '¡Hasta pronto! Que tengas un excelente día. Recuerda que Patricia está a un correo de distancia: thinkahead2033@gmail.com',
-    },
-  ];
+  const CALENDLY_URL = 'https://calendly.com/thinkahead2033/30min';
+  const EMAIL = 'thinkahead2033@gmail.com';
+  const PHONE = '646 207 7996';
+  const WHATSAPP_URL = 'https://wa.me/526462077996?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20gratuita%20de%2030%20minutos%20con%20DataLexis.mx.';
 
-  const QUICK_REPLIES = [
-    { label: '¿Quién es Patricia?', text: '¿Quién es Patricia?' },
-    { label: 'Taller Ciber Educa', text: 'Cuéntame del taller Ciber Educa Ahora' },
-    { label: 'Contacto', text: '¿Cómo puedo contactarla?' },
-    { label: 'Certificaciones', text: '¿Qué certificaciones tiene?' },
-  ];
+  const PROFILES = {
+    empresa: {
+      label: 'Empresa',
+      emoji: '🏢',
+      info:
+        'Para Empresas y PYMES, el plan Empresa Blindada ($12,000 MXN) incluye:\n\n' +
+        '• Entrevista ejecutiva de diagnóstico\n' +
+        '• Manual completo ISO 27001 personalizado\n' +
+        '• Matriz de riesgos corporativa\n' +
+        '• Políticas, procedimientos e informe ejecutivo\n\n' +
+        'Proteges tu operación ante ransomware, phishing y fuga de datos de clientes.',
+    },
+    escuela: {
+      label: 'Escuela',
+      emoji: '🏫',
+      info:
+        'Para Escuelas e Instituciones, el plan Escuela Protegida ($8,500 MXN) incluye:\n\n' +
+        '• Protocolo de actuación ante ciberacoso\n' +
+        '• Guía para docentes, directivos y padres\n' +
+        '• Manual ISO 27001 adaptado a tu institución\n' +
+        '• Sesión de capacitación incluida\n\n' +
+        'Es nuestro plan más solicitado — protege alumnos y reputación institucional.',
+    },
+    familia: {
+      label: 'Familia',
+      emoji: '🏠',
+      info:
+        'Para Padres de Familia, el plan Familia Segura ($2,800 MXN) incluye:\n\n' +
+        '• Manual del hogar digital seguro\n' +
+        '• Checklist de configuración de dispositivos\n' +
+        '• Acuerdo familiar de uso de internet\n' +
+        '• Guía ante grooming, sextorsión o robo de identidad\n\n' +
+        'Protege a quienes más importan con reglas claras y accionables.',
+    },
+  };
 
-  const FALLBACK =
-    'No tengo esa información exacta, pero Patricia puede ayudarte personalmente. Escríbele a thinkahead2033@gmail.com o llama al 646 207 7996.';
+  const PROFILE_BUTTONS = [
+    { id: 'empresa', label: '🏢 Empresa' },
+    { id: 'escuela', label: '🏫 Escuela' },
+    { id: 'familia', label: '🏠 Familia' },
+  ];
 
   const widget = document.getElementById('chatbot');
   if (!widget) return;
@@ -105,12 +52,16 @@
   const toggle = widget.querySelector('.chatbot-toggle');
   const panel = widget.querySelector('.chatbot-panel');
   const closeBtn = widget.querySelector('.chatbot-close');
-  const messagesEl = widget.querySelector('.chatbot-messages');
+  const messagesEl = document.getElementById('chatbot-messages');
+  const quickRepliesEl = document.getElementById('chatbot-quick');
+  const calendlyBar = document.getElementById('chatbot-calendly');
+  const subtitleEl = document.getElementById('chatbot-subtitle');
   const form = widget.querySelector('.chatbot-form');
   const input = widget.querySelector('.chatbot-input');
-  const quickRepliesEl = widget.querySelector('.chatbot-quick');
 
   let isOpen = false;
+  let state = 'awaiting_profile';
+  let userProfile = null;
 
   function normalize(text) {
     return text
@@ -120,21 +71,31 @@
       .trim();
   }
 
-  function findReply(text) {
+  function detectProfile(text) {
     const n = normalize(text);
-    for (const rule of RULES) {
-      if (rule.keys.some((k) => n.includes(normalize(k)))) {
-        return rule;
-      }
-    }
-    return { reply: FALLBACK, action: { label: 'Contactar', href: '#contacto' } };
+    if (/\b(empresa|pyme|negocio|corporativo|empresarial)\b/.test(n)) return 'empresa';
+    if (/\b(escuela|colegio|institucion|docente|director|maestro|preparatoria)\b/.test(n)) return 'escuela';
+    if (/\b(familia|padre|madre|hogar|hijos|menores|casa)\b/.test(n)) return 'familia';
+    return null;
   }
 
   function scrollToBottom() {
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  function addMessage(text, type, action) {
+  function createCalendlyButton() {
+    const link = document.createElement('a');
+    link.className = 'chatbot-calendly-btn chatbot-calendly-btn--inline';
+    link.href = CALENDLY_URL;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>' +
+      ' Agendar en Calendly (30 minutos)';
+    return link;
+  }
+
+  function addMessage(text, type, options = {}) {
     const msg = document.createElement('div');
     msg.className = `chatbot-msg chatbot-msg--${type}`;
     msg.setAttribute('role', type === 'bot' ? 'status' : 'none');
@@ -144,21 +105,25 @@
     bubble.textContent = text;
     msg.appendChild(bubble);
 
-    if (action && type === 'bot') {
-      const link = document.createElement('a');
-      link.className = 'chatbot-action';
-      link.textContent = action.label;
-      link.href = action.href;
-      if (action.external) {
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-      }
-      link.addEventListener('click', () => {
-        if (!action.external && action.href.startsWith('#')) {
-          setOpen(false);
+    if (options.actions && type === 'bot') {
+      const actionsWrap = document.createElement('div');
+      actionsWrap.className = 'chatbot-actions';
+      options.actions.forEach((action) => {
+        const link = document.createElement('a');
+        link.className = 'chatbot-action' + (action.primary ? ' chatbot-action--primary' : '');
+        link.textContent = action.label;
+        link.href = action.href;
+        if (action.external) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
         }
+        actionsWrap.appendChild(link);
       });
-      msg.appendChild(link);
+      msg.appendChild(actionsWrap);
+    }
+
+    if (options.showCalendly && type === 'bot') {
+      msg.appendChild(createCalendlyButton());
     }
 
     messagesEl.appendChild(msg);
@@ -174,13 +139,331 @@
     return el;
   }
 
-  function botRespond(text) {
+  function botReply(fn, delay) {
     const typing = showTyping();
     setTimeout(() => {
       typing.remove();
-      const result = findReply(text);
-      addMessage(result.reply, 'bot', result.action);
-    }, 500 + Math.random() * 400);
+      fn();
+    }, delay || 500 + Math.random() * 300);
+  }
+
+  function setQuickReplies(buttons) {
+    quickRepliesEl.innerHTML = '';
+    buttons.forEach((item) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'chatbot-quick-btn' + (item.profile ? ' chatbot-quick-btn--profile' : '');
+      btn.textContent = item.label;
+      btn.addEventListener('click', () => {
+        if (item.profile) {
+          selectProfile(item.profile);
+        } else if (item.action) {
+          item.action();
+        } else if (item.text) {
+          sendUserMessage(item.text);
+        }
+      });
+      quickRepliesEl.appendChild(btn);
+    });
+  }
+
+  function showProfileButtons() {
+    setQuickReplies(
+      PROFILE_BUTTONS.map((b) => ({
+        label: b.label,
+        profile: b.id,
+      }))
+    );
+  }
+
+  function contactOfferText() {
+    return (
+      '🎁 Te ofrezco una asesoría gratuita de 30 minutos para evaluar tus riesgos reales — sin compromiso.\n\n' +
+      'Elige cómo prefieres contactarnos:\n' +
+      `📧 Correo: ${EMAIL}\n` +
+      `📱 WhatsApp / Teléfono: ${PHONE}\n` +
+      '📅 O agenda directamente en Calendly (botón abajo).'
+    );
+  }
+
+  function showCalendlyBar(show) {
+    calendlyBar.hidden = !show;
+    widget.classList.toggle('chatbot--profile-set', show);
+  }
+
+  function updateSubtitle() {
+    if (userProfile && PROFILES[userProfile]) {
+      const p = PROFILES[userProfile];
+      subtitleEl.textContent = `${p.emoji} Perfil: ${p.label}`;
+    } else {
+      subtitleEl.textContent = 'En línea · Respuesta inmediata';
+    }
+  }
+
+  function getFollowUpButtons() {
+    return [
+      { label: '📅 Agendar Calendly', action: () => { addMessage('Agendar en Calendly', 'user'); handleAgendar(); } },
+      { label: '📧 Enviar correo', action: () => { addMessage('Contactar por correo', 'user'); handleContacto('correo'); } },
+      { label: '📱 WhatsApp', action: () => { addMessage('Contactar por WhatsApp', 'user'); handleContacto('whatsapp'); } },
+      { label: '💰 Ver precios', text: '¿Cuánto cuesta?' },
+      { label: '🔄 Cambiar perfil', action: () => { addMessage('Cambiar perfil', 'user'); resetProfile(true); } },
+    ];
+  }
+
+  function startConversation() {
+    state = 'awaiting_profile';
+    userProfile = null;
+    showCalendlyBar(false);
+    updateSubtitle();
+    addMessage(
+      '¡Hola! Soy el asistente de DataLexis.mx. Te ayudo a proteger tu información con un Manual de Gestión de Riesgos ISO 27001 personalizado.\n\n¿Eres Empresa, Escuela o Familia?',
+      'bot'
+    );
+    showProfileButtons();
+  }
+
+  function selectProfile(profileId, skipUserBubble) {
+    if (!PROFILES[profileId]) return;
+
+    userProfile = profileId;
+    state = 'profile_set';
+    const profile = PROFILES[profileId];
+
+    if (!skipUserBubble) {
+      addMessage(profile.label, 'user');
+    }
+    showCalendlyBar(true);
+    updateSubtitle();
+
+    botReply(() => {
+      addMessage(`Perfecto, ${profile.emoji} perfil ${profile.label}.\n\n${profile.info}`, 'bot');
+      botReply(() => {
+        addMessage(contactOfferText(), 'bot', { showCalendly: true });
+        setQuickReplies(getFollowUpButtons());
+      }, 400);
+    });
+  }
+
+  function resetProfile(skipUserBubble) {
+    if (!skipUserBubble) {
+      addMessage('Cambiar perfil', 'user');
+    }
+    botReply(() => {
+      state = 'awaiting_profile';
+      userProfile = null;
+      showCalendlyBar(false);
+      updateSubtitle();
+      addMessage('Sin problema. ¿Eres Empresa, Escuela o Familia?', 'bot');
+      showProfileButtons();
+    });
+  }
+
+  function handleAgendar() {
+    const label = userProfile ? PROFILES[userProfile].label : 'mi perfil';
+    botReply(() => {
+      addMessage(
+        `¡Excelente decisión! Agenda tu asesoría gratuita de 30 minutos para ${label}.\n\nHaz clic en el botón verde de Calendly — te llevará directo al calendario disponible.`,
+        'bot',
+        { showCalendly: true }
+      );
+      setQuickReplies(getFollowUpButtons());
+    });
+  }
+
+  function handleContacto(channel) {
+    const label = userProfile ? PROFILES[userProfile].label : 'DataLexis.mx';
+    if (channel === 'correo') {
+      botReply(() => {
+        addMessage(
+          `Escribe a ${EMAIL} con el asunto "Asesoría ${label}" y te respondemos en menos de 24 horas.\n\nTambién puedes agendar directamente en Calendly si prefieres elegir fecha y hora.`,
+          'bot',
+          {
+            showCalendly: true,
+            actions: [
+              {
+                label: `Enviar correo a ${EMAIL}`,
+                href: `mailto:${EMAIL}?subject=${encodeURIComponent('Asesoría DataLexis.mx — ' + label)}&body=${encodeURIComponent('Hola, me interesa la asesoría gratuita de 30 minutos para ' + label + '.')}`,
+                external: true,
+              },
+            ],
+          }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+    } else {
+      botReply(() => {
+        addMessage(
+          `Escríbenos al ${PHONE} por WhatsApp o llama directamente.\n\nMenciona que vienes de DataLexis.mx y tu perfil (${label}) para una atención más rápida.`,
+          'bot',
+          {
+            showCalendly: true,
+            actions: [
+              { label: 'Abrir WhatsApp', href: WHATSAPP_URL, external: true },
+              { label: `Llamar al ${PHONE}`, href: 'tel:+526462077996', external: true },
+            ],
+          }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+    }
+  }
+
+  function handleAwaitingProfile(text) {
+    const detected = detectProfile(text);
+    if (detected) {
+      selectProfile(detected, true);
+      return;
+    }
+    botReply(() => {
+      addMessage(
+        'Para orientarte mejor, necesito saber tu perfil. Por favor elige una opción:\n\n🏢 Empresa · 🏫 Escuela · 🏠 Familia',
+        'bot'
+      );
+      showProfileButtons();
+    });
+  }
+
+  function handleProfileSet(text) {
+    const n = normalize(text);
+
+    if (/\b(cambiar|otro perfil|otra opcion)\b/.test(n)) {
+      resetProfile(true);
+      return;
+    }
+
+    const newProfile = detectProfile(text);
+    if (newProfile && newProfile !== userProfile) {
+      selectProfile(newProfile, true);
+      return;
+    }
+
+    if (/\b(agendar|cita|calendly|reunion|llamada|asesoria|consulta|horario)\b/.test(n)) {
+      handleAgendar();
+      return;
+    }
+
+    if (/\b(correo|email|mail|escribir)\b/.test(n)) {
+      handleContacto('correo');
+      return;
+    }
+
+    if (/\b(whatsapp|wsp|telefono|teléfono|llamar|646)\b/.test(n)) {
+      handleContacto('whatsapp');
+      return;
+    }
+
+    if (/\b(precio|costo|cuanto|cuánto|plan|tarifa|vale|cobr)\b/.test(n)) {
+      const p = PROFILES[userProfile];
+      botReply(() => {
+        addMessage(
+          `El plan recomendado para ${p.label} ya está en tu perfil. Si quieres profundizar, la asesoría de 30 minutos es gratuita y ahí definimos el alcance exacto.\n\n¿Listo para agendar?`,
+          'bot',
+          { showCalendly: true }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+      return;
+    }
+
+    if (/\b(proceso|funciona|pasos|manual|iso|entrevista|entrega)\b/.test(n)) {
+      botReply(() => {
+        addMessage(
+          'El proceso para tu perfil es:\n\n' +
+          '1️⃣ Asesoría gratuita de 30 min (Calendly)\n' +
+          '2️⃣ Entrevista de diagnóstico (60–90 min)\n' +
+          '3️⃣ Análisis de riesgos ISO 27001\n' +
+          '4️⃣ Entrega de tu manual personalizado (5–10 días)\n' +
+          '5️⃣ Soporte post-entrega incluido\n\n' +
+          'Todo empieza con tu cita gratuita.',
+          'bot',
+          { showCalendly: true }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+      return;
+    }
+
+    if (/\b(pago|pagar|transferencia|deposito|depósito|exhibicion|exhibición)\b/.test(n)) {
+      botReply(() => {
+        addMessage(
+          'Aceptamos transferencia, depósito y pagos en 2 exhibiciones (50% al iniciar, 50% al entregar).\n\nPrimero agendamos la asesoría gratuita de 30 minutos para confirmar el plan ideal para ti.',
+          'bot',
+          { showCalendly: true }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+      return;
+    }
+
+    if (/\b(gracias|thank|perfecto|genial|excelente|listo|de acuerdo)\b/.test(n)) {
+      botReply(() => {
+        addMessage(
+          '¡Con gusto! Cuando estés listo, agenda tu asesoría gratuita de 30 minutos. Estaré aquí si tienes más dudas.',
+          'bot',
+          { showCalendly: true }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+      return;
+    }
+
+    if (/\b(adios|adiós|bye|chao|hasta luego)\b/.test(n)) {
+      botReply(() => {
+        addMessage(
+          `¡Hasta pronto! Recuerda: proteger tu información empieza con un paso. Agenda tu asesoría en Calendly o escríbenos a ${EMAIL}.`,
+          'bot',
+          { showCalendly: true }
+        );
+        setQuickReplies([{ label: '📅 Agendar Calendly', action: () => { addMessage('Agendar en Calendly', 'user'); handleAgendar(); } }]);
+      });
+      return;
+    }
+
+    if (/\b(hola|buenos|buenas|hey|saludos)\b/.test(n)) {
+      const p = PROFILES[userProfile];
+      botReply(() => {
+        addMessage(
+          `¡Hola de nuevo! Sigues en perfil ${p.emoji} ${p.label}. ¿Quieres agendar tu asesoría gratuita de 30 minutos?`,
+          'bot',
+          { showCalendly: true }
+        );
+        setQuickReplies(getFollowUpButtons());
+      });
+      return;
+    }
+
+    const p = PROFILES[userProfile];
+    botReply(() => {
+      addMessage(
+        `Entiendo tu consulta. Como perfil ${p.label}, lo mejor es que lo revisemos en la asesoría gratuita de 30 minutos — ahí Patricia te orienta de forma personalizada.\n\nUsa Calendly, correo o WhatsApp:`,
+        'bot',
+        {
+          showCalendly: true,
+          actions: [
+            { label: `📧 ${EMAIL}`, href: `mailto:${EMAIL}`, external: true },
+            { label: `📱 ${PHONE}`, href: WHATSAPP_URL, external: true },
+          ],
+        }
+      );
+      setQuickReplies(getFollowUpButtons());
+    });
+  }
+
+  function processMessage(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+
+    addMessage(trimmed, 'user');
+
+    if (state === 'awaiting_profile') {
+      handleAwaitingProfile(trimmed);
+    } else {
+      handleProfileSet(trimmed);
+    }
+  }
+
+  function sendUserMessage(text) {
+    processMessage(text);
   }
 
   function setOpen(open) {
@@ -192,25 +475,6 @@
       input.focus();
       scrollToBottom();
     }
-  }
-
-  function sendUserMessage(text) {
-    const trimmed = text.trim();
-    if (!trimmed) return;
-    addMessage(trimmed, 'user');
-    botRespond(trimmed);
-  }
-
-  function renderQuickReplies() {
-    quickRepliesEl.innerHTML = '';
-    QUICK_REPLIES.forEach((item) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'chatbot-quick-btn';
-      btn.textContent = item.label;
-      btn.addEventListener('click', () => sendUserMessage(item.text));
-      quickRepliesEl.appendChild(btn);
-    });
   }
 
   toggle.addEventListener('click', () => setOpen(!isOpen));
@@ -227,9 +491,5 @@
     if (e.key === 'Escape' && isOpen) setOpen(false);
   });
 
-  renderQuickReplies();
-  addMessage(
-    '¡Hola! Soy el asistente de Patricia. Pregúntame sobre su experiencia, certificaciones, el taller Ciber Educa Ahora o cómo contactarla.',
-    'bot'
-  );
+  startConversation();
 })();
