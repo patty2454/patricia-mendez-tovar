@@ -9,7 +9,9 @@
   <meta property="og:site_name" content="DataLexis.mx">
   <title>DataLexis.mx | Ciberseguridad y Gestión de Riesgos ISO 27001</title>
   <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="preconnect" href="https://www.paypal.com">
+  <link rel="preconnect" href="https://www.paypalobjects.com">
+  <link rel="stylesheet" href="styles.css?v=8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -330,6 +332,7 @@
               <li>15 días de soporte</li>
             </ul>
             <a href="#asesoria" class="btn btn--outline" data-plan="familia">Solicitar asesoría</a>
+            <a href="#pago" class="btn btn--ghost pricing-pay-link">Pagar con PayPal</a>
           </article>
           <article class="pricing-card pricing-card--featured">
             <span class="pricing-badge">Recomendado</span>
@@ -372,29 +375,22 @@
         <div class="paypal-box" id="pago">
           <div class="paypal-box-copy">
             <h3>Pago seguro con PayPal</h3>
-            <p>Después de tu asesoría, paga tu plan en <strong>MXN</strong> con protección al comprador de PayPal.</p>
+            <p>Después de tu asesoría de 30 minutos, paga tu plan en <strong>MXN</strong> con el botón oficial de PayPal.</p>
             <p class="paypal-box-alt">También aceptamos transferencia, depósito y pagos en 2 exhibiciones.</p>
           </div>
-          <div class="paypal-box-btn">
-            <form
-              class="paypal-pay-form"
-              action="https://www.paypal.com/cgi-bin/webscr"
-              method="post"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="4MP3PQYMYCMGE">
-              <button type="submit" class="paypal-pay-btn">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.34 6.5H2.5L1 18.12h3.17l.35-2.24h2.9c3.07 0 5.18-1.57 5.68-4.88.22-1.52-.02-2.71-.72-3.54-.78-.92-2.17-1.42-4.08-1.42zm.58 5.2c-.26 1.67-1.54 1.67-2.78 1.67H4.3l.55-3.52h1.05c1.2 0 2.08.03 2.42 1.85zM20.5 10.2c-.46-2.2-2.48-3.52-5.14-3.52H11.1l-1.2 7.62h3.2c2.5 0 4.1-1.2 4.58-3.3.2-.95.15-1.8-.18-2.5z"/></svg>
-                Pagar con PayPal
-              </button>
-            </form>
-            <p class="paypal-secure-note">Pago seguro en MXN · Se abre en PayPal</p>
+          <div class="paypal-box-grid">
+            <div class="paypal-box-item">
+              <p class="paypal-box-item-label">Plan Familia Segura · $2,800 MXN</p>
+              <div id="paypal-familia" class="paypal-slot" aria-label="Botón PayPal plan Familia"></div>
+            </div>
+            <div class="paypal-box-item">
+              <p class="paypal-box-item-label">Escuela / Empresa · otros montos</p>
+              <div id="paypal-general" class="paypal-slot" aria-label="Botón PayPal otros planes"></div>
+            </div>
           </div>
         </div>
         <p class="pricing-note">
-          <strong>Primera consulta de 15 minutos sin costo.</strong> Agenda antes de pagar para confirmar el plan ideal.
+          <strong>Primera asesoría de 30 minutos sin costo.</strong> <a href="#asesoria">Agenda en Calendly</a> antes de pagar.
         </p>
       </div>
     </section>
@@ -405,10 +401,10 @@
         <div class="cta-layout">
           <div class="cta-copy">
             <p class="section-eyebrow">Da el primer paso</p>
-            <h2 class="section-title section-title--light">Solicita tu asesoría gratuita</h2>
+            <h2 class="section-title section-title--light">Agenda tu asesoría gratuita</h2>
             <p class="section-desc section-desc--light">
-              En 15 minutos evaluamos si DataLexis.mx es la solución correcta para ti.
-              Sin compromiso, sin presión — solo claridad sobre tus riesgos reales.
+              En 30 minutos evaluamos si DataLexis.mx es la solución correcta para ti.
+              Completa el formulario y te llevamos directo a Calendly para elegir fecha y hora.
             </p>
             <ul class="cta-guarantees">
               <li>
@@ -448,9 +444,17 @@
               <textarea id="mensaje" name="mensaje" rows="3" autocomplete="off" placeholder="¿Qué te preocupa sobre la seguridad de tu información?"></textarea>
             </div>
             <button type="submit" class="btn btn--primary btn--lg btn--block" id="cta-submit">
-              Agendar asesoría gratuita
+              Agendar en Calendly (30 minutos)
             </button>
-            <p class="form-note">También puedes escribir directamente a <a href="mailto:thinkahead2033@gmail.com">thinkahead2033@gmail.com</a> o llamar al <a href="tel:+526462077996">646 207 7996</a></p>
+            <a
+              href="https://calendly.com/thinkahead2033/30min"
+              class="btn btn--ghost btn--block cta-calendly-direct"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir Calendly directamente
+            </a>
+            <p class="form-note">También puedes escribir a <a href="mailto:thinkahead2033@gmail.com">thinkahead2033@gmail.com</a> o llamar al <a href="tel:+526462077996">646 207 7996</a></p>
           </form>
         </div>
       </div>
@@ -639,6 +643,8 @@
       });
     });
 
+    const CALENDLY_URL = 'https://calendly.com/thinkahead2033/30min';
+
     document.getElementById('asesoria-form')?.addEventListener('submit', (e) => {
       e.preventDefault();
       const form = e.target;
@@ -650,9 +656,11 @@
       const sector = document.getElementById('sector').value;
       const email = document.getElementById('email').value.trim();
       const mensaje = document.getElementById('mensaje').value.trim();
-      const subject = encodeURIComponent(`Asesoría DataLexis.mx — ${sector} — ${nombre}`);
-      const body = encodeURIComponent(`Nombre: ${nombre}\nSector: ${sector}\nCorreo: ${email}\n\nMensaje:\n${mensaje}`);
-      window.location.href = `mailto:thinkahead2033@gmail.com?subject=${subject}&body=${body}`;
+      const params = new URLSearchParams({
+        name: nombre,
+        email: email,
+      });
+      window.open(`${CALENDLY_URL}?${params.toString()}`, '_blank', 'noopener,noreferrer');
     });
 
     document.querySelectorAll('[data-plan]').forEach((btn) => {
@@ -666,6 +674,7 @@
       });
     });
   </script>
-  <script src="chatbot.js?v=3"></script>
+  <script src="chatbot.js?v=4"></script>
+  <script src="paypal.js?v=1"></script>
 </body>
 </html>
