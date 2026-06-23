@@ -9,9 +9,11 @@
   <meta property="og:site_name" content="DataLexis.mx">
   <title>DataLexis.mx | Ciberseguridad y Gestión de Riesgos ISO 27001</title>
   <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.paypal.com">
+  <link rel="preconnect" href="https://www.paypalobjects.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -367,9 +369,18 @@
             <a href="#asesoria" class="btn btn--outline" data-plan="empresa">Solicitar asesoría</a>
           </article>
         </div>
+        <div class="paypal-box" id="pago">
+          <div class="paypal-box-copy">
+            <h3>Pago seguro con PayPal</h3>
+            <p>Después de tu asesoría, paga tu plan en <strong>MXN</strong> con protección al comprador de PayPal.</p>
+            <p class="paypal-box-alt">También aceptamos transferencia, depósito y pagos en 2 exhibiciones.</p>
+          </div>
+          <div class="paypal-box-btn">
+            <div id="paypal-container-MWZU2LX6MMYME"></div>
+          </div>
+        </div>
         <p class="pricing-note">
-          💳 Aceptamos transferencia, depósito y pagos en 2 exhibiciones.
-          <strong>Primera consulta de 15 minutos sin costo.</strong>
+          <strong>Primera consulta de 15 minutos sin costo.</strong> Agenda antes de pagar para confirmar el plan ideal.
         </p>
       </div>
     </section>
@@ -642,5 +653,20 @@
     });
   </script>
   <script src="chatbot.js?v=3"></script>
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAA8nO5EagHBkx9gemUtYaTy2b_AJdfmqUTHKQIZ7_BoT3tIUI4iYiq8PKcMRrKjBELAvYHeURAmd01eTk&components=hosted-buttons&disable-funding=venmo&currency=MXN"
+    data-sdk-integration-source="integrationbuilder"
+  ></script>
+  <script>
+    (function initPayPal() {
+      if (typeof paypal === 'undefined' || !paypal.HostedButtons) {
+        setTimeout(initPayPal, 150);
+        return;
+      }
+      paypal.HostedButtons({
+        hostedButtonId: 'MWZU2LX6MMYME',
+      }).render('#paypal-container-MWZU2LX6MMYME');
+    })();
+  </script>
 </body>
 </html>

@@ -386,9 +386,9 @@
     if (/\b(pago|pagar|transferencia|deposito|depósito|exhibicion|exhibición)\b/.test(n)) {
       botReply(() => {
         addMessage(
-          'Aceptamos transferencia, depósito y pagos en 2 exhibiciones (50% al iniciar, 50% al entregar).\n\nPrimero agendamos la asesoría gratuita de 30 minutos para confirmar el plan ideal para ti.',
+          'Aceptamos:\n• PayPal (MXN) — botón en la sección Precios\n• Transferencia y depósito\n• Pagos en 2 exhibiciones (50% al iniciar, 50% al entregar)\n\nPrimero agendamos la asesoría gratuita de 30 minutos para confirmar el plan ideal.',
           'bot',
-          { showCalendly: true }
+          { showCalendly: true, actions: [{ label: 'Ver pago PayPal', href: '#pago' }] }
         );
         setQuickReplies(getFollowUpButtons());
       });
