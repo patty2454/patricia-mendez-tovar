@@ -949,8 +949,31 @@ a:focus-visible,
   min-width: 200px;
 }
 
-#paypal-container-4MP3PQYMYCMGE {
+.paypal-container {
   min-height: 48px;
+  min-width: 200px;
+}
+
+.paypal-loading {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.paypal-fallback-form[hidden] {
+  display: none !important;
+}
+
+.paypal-fallback-btn {
+  min-width: 200px;
+  background: #0070ba;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 112, 186, 0.35);
+}
+
+.paypal-fallback-btn:hover {
+  color: #fff;
+  background: #005ea6;
 }
 
 /* CTA Form */
